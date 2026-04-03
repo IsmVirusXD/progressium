@@ -1,7 +1,7 @@
-import { Theme } from "@/app/features/themeManager/types/themeTokens";
+import { ThemeTokens } from "@/app/features/themeManager/types/themeTokens";
 import { mapFont } from "../../features/themeManager/maps/mapFont";
 
-export const defaultTheme: Theme = {
+export const defaultTheme: ThemeTokens = {
   //Colors
 
   //Typography
