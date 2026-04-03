@@ -1,1 +1,12 @@
 @import "tailwindcss";
+
+@theme inline {
+  --color-background: var(--theme-color-background);
+  --color-surface: var(--theme-color-surface);
+  --color-foreground: var(--theme-color-foreground);
+  --color-muted: var(--theme-color-muted);
+  --color-primary: var(--theme-color-primary);
+
+  --font-body: var(--theme-font-body);
+  --font-heading: var(--theme-font-heading);
+}

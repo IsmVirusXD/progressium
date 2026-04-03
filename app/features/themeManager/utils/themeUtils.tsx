@@ -1,5 +1,5 @@
 import { mapTheme, Theme } from "../maps/mapTheme";
-import { ThemeTokens } from "../types/themeTokens";
+import { ThemeTokens } from "../../../styles/theme/themeTokens";
 
 export const hasTheme = (name: string): name is Theme => {
   return name in mapTheme;

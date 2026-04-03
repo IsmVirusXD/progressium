@@ -1,5 +1,5 @@
 import { defaultTheme } from "../../../styles/theme/defaultTheme";
-import { ThemeTokens } from "../types/themeTokens";
+import { ThemeTokens } from "../../../styles/theme/themeTokens";
 
 export const mapTheme: Record<string, ThemeTokens> = {
   default: defaultTheme,

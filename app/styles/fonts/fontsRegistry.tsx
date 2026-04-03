@@ -1,9 +1,27 @@
-import { Playpen_Sans } from "next/font/google";
+import { Playpen_Sans, Geist, Geist_Mono } from "next/font/google";
+
+const playpen = Playpen_Sans({
+  variable: "--font-playpen",
+  weight: ["200", "400", "600"],
+  subsets: ["latin"],
+});
+
+const geistSans = Geist({
+  variable: "--font-geist-sans",
+  subsets: ["latin"],
+});
+
+const geistMono = Geist_Mono({
+  variable: "--font-geist-mono",
+  subsets: ["latin"],
+});
 
 export const fontRegistry = {
-  playpen: Playpen_Sans({
-    variable: "--font-playpen",
-    weight: ["200", "400", "600"],
-    subsets: ["latin"],
-  }),
+  playpen,
+  geistSans,
+  geistMono,
 };
+
+export const fontVariables = Object.values(fontRegistry)
+  .map((font) => font.variable)
+  .join(" ");
