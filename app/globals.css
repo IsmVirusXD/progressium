@@ -6,6 +6,7 @@
   --color-foreground: var(--theme-color-foreground);
   --color-muted: var(--theme-color-muted);
   --color-primary: var(--theme-color-primary);
+  --color-secondary: var(--theme-color-secondary);
 
   --font-body: var(--theme-font-body);
   --font-heading: var(--theme-font-heading);
