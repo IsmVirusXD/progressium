@@ -9,6 +9,7 @@ export const defaultTheme: ThemeTokens = {
   "--theme-color-muted": "#64748b",
   "--theme-color-primary": "#1a4b8e",
   "--theme-color-secondary": "#d42027",
+  "--theme-color-done": "#00843d",
 
   //Typography
   "--theme-font-body": mapFont.playpen,

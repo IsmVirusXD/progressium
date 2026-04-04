@@ -6,6 +6,7 @@ export type ThemeTokens = {
   "--theme-color-muted": string;
   "--theme-color-primary": string;
   "--theme-color-secondary": string;
+  "--theme-color-done": string;
 
   // Typography
   "--theme-font-body": string;
