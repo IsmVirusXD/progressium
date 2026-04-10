@@ -1,5 +1,5 @@
 # -------------------------------------------------------------------------------
-# CONFIGURAÇÕES DO SISTEMA: Naruto: Ultimate Ninja (PS2)
+# Naruto: Ultimate Ninja (PS2)
 # -------------------------------------------------------------------------------
 
 info:
@@ -10,7 +10,7 @@ info:
   mode: "retro"
   dlc: false
 
-# Âncoras para padronização de personagens (facilita manutenção)
+
 characters:
   base: &base_chars 
     - "Naruto"

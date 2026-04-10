@@ -1,100 +1,123 @@
 # -------------------------------------------------------------------------------
-# CONFIGURAÇÕES DO SISTEMA: Naruto: Ultimate Ninja (PS2)
+# Cuphead
 # -------------------------------------------------------------------------------
 
 info:
-  title: "RetroAchievement - Naruto: Ultimate Ninja"
+  title: "Cuphead - Achievements" # Padronizado para 'title'
   author: "Igor Mendes"
-  game: "Naruto: Ultimate Ninja"
-  console: "ps2"
-  mode: "retro"
+  game: "Cuphead"
+  console: "stm"
+  mode: "achiv"
   dlc: false
 
-# Âncoras para padronização de personagens (facilita manutenção)
-characters:
-  base: &base_chars 
-    - "Naruto"
-    - "Sasuke"
-    - "Sakura"
-    - "Rock Lee"
-    - "Shikamaru"
-    - "Kakashi"
-    - "Neji"
-    - "Hinata"
-    - "Haku"
-    - "Zabuza"
-    - "Gaara"
-    - "Orochimaru"
-  extended: &extended_chars
-    - *base_chars
-    - "Nine-Tails Naruto"
-    - "Cursed Mark Sasuke"
+
+common_ranks: &default_ranks ["D", "C", "B", "B+", "A-", "A", "A+", "S"]
 
 content:
-  # --- STORY MODES ---
-  - TextList:
-      title: "Scenario Mode"
-      items: *base_chars
+  Cuphead:
+    # --- GENERAL PROGRESSION ---
+    - TextList:
+        title: "Completing the Game"
+        items:
+          - "Normal Difficulty"
+          - "Expert Difficulty"
 
-  - TextList:
-      title: "Scenario Mode - Hardcore"
-      description: "Complete the scenario without using any retries."
-      items: *base_chars
+    - CounterGoal: # Padronizado para CounterList (como no Naruto)
+        title: "Collectibles"
+        label: "Coins"
+        target: 40
 
-  - TextList:
-      title: "Training Mode"
-      description: "Complete training with all available forms."
-      items: *extended_chars
+    - TextGoal:
+        title: "Exploration"
+        item: "Find a Shortcut"
 
-  # --- MISSIONS & PROGRESSION ---
-  - CheckTable:
-      title: "Missions"
-      max_num_rows: 5
-      max_num_columns: 10
-      # Padronizado para lista de objetos (melhor para mapear no React)
-      data:
-        - { label: "Practice", count: 5 }
-        - { label: "D-Rank", count: 6 }
-        - { label: "C-Rank", count: 7 }
-        - { label: "B-Rank", count: 10 }
-        - { label: "A-Rank", count: 9 }
+    # --- TECHNICAL CHALLENGES ---
+    - TextList:
+        title: "Parries"
+        items:
+          - "Perform 20 Parries"
+          - "Perform 100 Parries"
+          - "Perform 5 Parries before hitting the ground"
 
-  - TextList:
-      title: "S-Rank Missions"
-      items:
-        - "Find every secret scroll"
-        - "Complete the Make-Out Paradise"
-        - "All Techniques in Practice Mode"
-        - "Unlock Every Character"
-        - "Battle 99 times with all characters"
-        - "Obtain 9,999,999 Ryo"
-        - "Complete every Mission"
-        - "Obtain 999 Useless items"
+    - TextList:
+        title: "Defeating a Boss"
+        items:
+          - "Defeat a Boss"
+          - "With an EX move"
+          - "With a Super Art"
+          - "Achieve an S-Rank"
+          - "Using only the Mini-Plane bullets"
 
-  # --- COLLECTIBLES ---
-  - CounterList:
-      title: "Collection Progress"
-      # Transformado em lista de objetos para manter consistência com o CheckTable
-      items:
-        - { label: "Scrolls", target: 99 }
-        - { label: "Figures", target: 419 }
-        - { label: "Sounds", target: 387 }
-        - { label: "Ninja Cards", target: 270 }
-        - { label: "Techniques", target: 1176 }
+    - TextList:
+        title: "Run 'N Gun"
+        items:
+          - "Complete a level without taking damage"
+          - "Without killing anyone (Pacifist)"
 
-  # --- SPECIAL CHALLENGES ---
-  - TextList:
-      title: "Sharingan Mastery"
-      description: "Defeat specific enemies using Sharingan (Sasuke or Kakashi)."
-      items:
-        - "Naruto (Sexy Jutsu)"
-        - "Sakura (This fairy tale is for real)"
-        - "Haku (A Thousand Needles of Death)"
-        - "Gaara"
+    # --- WORLD 1 (Inkwell Isle I) ---
+    - RankList:
+        title: "Inkwell Isle I - Rank"
+        target: "A"
+        ranks: *default_ranks
+        items:
+          [
+            "The Root Pack",
+            "Goopy Le Grande",
+            "Hilda Berg",
+            "Cagney Carnation",
+            "Ribby and Croaks",
+          ]
 
-  - CounterTable:
-      title: "Make-Out Paradise"
-      max_rows: 14
-      max_cols: 14
-      all_counters_goal: 99
-      participants: *extended_chars
+    # --- WORLD 2 (Inkwell Isle II) ---
+    - RankList:
+        title: "Inkwell Isle II - Rank"
+        target: "A"
+        ranks: *default_ranks
+        items:
+          [
+            "Baroness Von Bon Bon",
+            "Beppi The Clown",
+            "Djimmi The Great",
+            "Grim Matchstick",
+            "Wally Warbles",
+          ]
+
+    # --- WORLD 3 (Inkwell Isle III) ---
+    - RankList:
+        title: "Inkwell Isle III"
+        target: "A"
+        ranks: *default_ranks
+        items:
+          [
+            "Rumor Honeybottoms",
+            "Captain Brineybeard",
+            "Sally Stageplay",
+            "Werner Werman",
+            "Dr. Kahl's Robot",
+            "Cala Maria",
+            "Phantom Express",
+          ]
+
+    # --- ENDGAME (Hell & Casino) ---
+    - RankList:
+        title: "Inkwell Hell"
+        target: "A"
+        ranks: *default_ranks
+        items: ["King Dice", "The Devil"]
+
+    - TextList:
+        title: "The Casino"
+        items:
+          - "Defeat King Dice"
+          - "Defeat King Dice without taking damage"
+
+    - TextList:
+        title: "The Devil"
+        items:
+          - "Defeat The Devil"
+          - "Accept the Contract"
+
+    # --- ABILITIES ---
+    - TextList:
+        title: "Super Arts"
+        items: ["Super Art I", "Super Art II", "Super Art III"]
