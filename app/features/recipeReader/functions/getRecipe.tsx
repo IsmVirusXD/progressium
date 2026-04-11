@@ -1,10 +1,11 @@
 import fs from 'fs';
 import path from 'path';
 import yaml from 'js-yaml'
+import { YAML_DATA_DIR } from '../constants';
 
 
 export function getYamlData(fileName: string) {
-  const filePath = path.join(process.cwd(), 'data', fileName);
+  const filePath = path.join(YAML_DATA_DIR, fileName);
 
   try {
     const fileContents = fs.readFileSync(filePath, 'utf8');
