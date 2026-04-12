@@ -10,7 +10,6 @@ info:
   mode: "achiv"
   dlc: false
 
-
 common_ranks: &default_ranks ["D", "C", "B", "B+", "A-", "A", "A+", "S"]
 
 content:

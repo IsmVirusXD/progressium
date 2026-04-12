@@ -10,9 +10,8 @@ info:
   mode: "retro"
   dlc: false
 
-
 characters:
-  base: &base_chars 
+  base: &base_chars
     - "Naruto"
     - "Sasuke"
     - "Sakura"

@@ -9,7 +9,6 @@ export default function TrackerHeader({
   author,
   image,
 }: TrackerHeaderProps) {
-
   return (
     <div
       id="header_dashboard"
