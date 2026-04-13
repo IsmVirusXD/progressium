@@ -6,7 +6,11 @@ import { Recipe } from "../schema/RecipeSchema";
 export const YAML_DATA_DIR = path.join(process.cwd(), "data");
 
 export function yamlParse(content: string): string | unknown {
-  return yaml.load(content);
+  try {
+    return yaml.load(content);
+  } catch (e) {
+    console.error(`[YamlHandler]: Fail to parse (${content})`);
+  }
 }
 
 export function yamlGetOne(fileName: string) {
@@ -16,7 +20,7 @@ export function yamlGetOne(fileName: string) {
     const fileContents = fs.readFileSync(filePath, "utf8");
     return yamlParse(fileContents);
   } catch (e) {
-    console.error(`Error ao carregar o arquivo YAML (${fileName})`, e);
+    console.error(`[YamlHandler]: Failed to load YAML file (${fileName})`, e);
     return null;
   }
 }
@@ -33,8 +37,8 @@ export function yamlGetAll() {
           const doc = yamlParse(fileContent);
           return doc as Recipe;
         } catch (error) {
-          console.error(
-            `Error: Falha ao carregar o conteúdo de "${file}". Pulando arquivo...`,
+          console.warn(
+            `RecipeReader[YamlHandler]: Failed to load content from "${file}". Skipping file...`,
             error,
           );
           return null;
@@ -43,13 +47,13 @@ export function yamlGetAll() {
       .filter((file: any) => file !== null);
 
     if (allFiles.length === 0) {
-      console.error(`Não há arquivos no Repositório`);
+      console.error(`RecipeReader[YamlHandler]: No files on the directory`);
       return [];
     }
     return allFiles;
   } catch (globalError) {
     console.error(
-      "Erro Critico: Ao Acessar a a pasta de Arquivos",
+      "RecipeReader[YamlHandler]: Critical error while accessing the files directory.",
       globalError,
     );
     return [];

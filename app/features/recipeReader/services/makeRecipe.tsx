@@ -1,6 +1,7 @@
-import { Recipe } from "./interfaces/Recipe";
-import { yamlGetOne } from "./functions/yamlHandler";
-import { RecipeSchema } from "./schema/RecipeSchema";
+import { yamlGetOne } from "../functions/yamlHandler";
+import { Recipe } from "../interfaces/Recipe";
+import { RecipeSchema } from "../schema/RecipeSchema";
+
 
 export function makeRecipe(fileId: string) {
   const data = yamlGetOne(fileId);
@@ -10,7 +11,7 @@ export function makeRecipe(fileId: string) {
     return recipe;
   } catch (error) {
     console.error(
-      `A Receita: ${fileId} não se encontra nos padrões esperados`,
+      `RecipeReader[MakeRecipe]: ${fileId} is not on in the correct format`,
       error,
     );
     return null;
