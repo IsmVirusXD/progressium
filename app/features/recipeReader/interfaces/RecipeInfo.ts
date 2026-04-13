@@ -6,5 +6,3 @@ export interface IRecipeInfo {
   mode: string;
   dlc: boolean;
 }
-
-
