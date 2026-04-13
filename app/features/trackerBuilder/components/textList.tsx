@@ -5,14 +5,13 @@ import { ChevronDown, Circle, CircleCheckBig, Minus } from "lucide-react";
 import { twJoin } from "tailwind-merge";
 
 interface textListProps {
-  title: string
-  items: string[],
+  title: string;
+  items: string[];
 }
 
-export default function TextList({title, items } : textListProps) {
-
+export default function TextList({ title, items }: textListProps) {
   const idBase = title.toLocaleLowerCase().replace(/\s+/g, "");
-  
+
   const [done, setDone] = useState<boolean[]>(
     new Array(items.length).fill(false),
   );

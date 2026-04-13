@@ -1,0 +1,97 @@
+# -------------------------------------------------------------------------------
+# Naruto: Ultimate Ninja (PS2)
+# -------------------------------------------------------------------------------
+
+info:
+  title: "RetroAchievement - Naruto: Ultimate Ninja"
+  author: "Igor Mendes"
+  game: "Naruto: Ultimate Ninja"
+  console: "ps2"
+  mode: "retro"
+  dlc: false
+
+characters:
+  base: &base_chars
+    - "Naruto"
+    - "Sasuke"
+    - "Sakura"
+    - "Rock Lee"
+    - "Shikamaru"
+    - "Kakashi"
+    - "Neji"
+    - "Hinata"
+    - "Haku"
+    - "Zabuza"
+    - "Gaara"
+    - "Orochimaru"
+  extended: &extended_chars
+    - *base_chars
+    - "Nine-Tails Naruto"
+    - "Cursed Mark Sasuke"
+
+content:
+  # --- STORY MODES ---
+  - TextList:
+      title: "Scenario Mode"
+      items: *base_chars
+
+  - TextList:
+      title: "Scenario Mode - Hardcore"
+      description: "Complete the scenario without using any retries."
+      items: *base_chars
+
+  - TextList:
+      title: "Training Mode"
+      description: "Complete training with all available forms."
+      items: *extended_chars
+
+  # --- MISSIONS & PROGRESSION ---
+  - CheckTable:
+      title: "Missions"
+      max_num_rows: 5
+      max_num_columns: 10
+      data:
+        - { label: "Practice", count: 5 }
+        - { label: "D-Rank", count: 6 }
+        - { label: "C-Rank", count: 7 }
+        - { label: "B-Rank", count: 10 }
+        - { label: "A-Rank", count: 9 }
+
+  - TextList:
+      title: "S-Rank Missions"
+      items:
+        - "Find every secret scroll"
+        - "Complete the Make-Out Paradise"
+        - "All Techniques in Practice Mode"
+        - "Unlock Every Character"
+        - "Battle 99 times with all characters"
+        - "Obtain 9,999,999 Ryo"
+        - "Complete every Mission"
+        - "Obtain 999 Useless items"
+
+  # --- COLLECTIBLES ---
+  - CounterList:
+      title: "Collection Progress"
+      items:
+        - { label: "Scrolls", target: 99 }
+        - { label: "Figures", target: 419 }
+        - { label: "Sounds", target: 387 }
+        - { label: "Ninja Cards", target: 270 }
+        - { label: "Techniques", target: 1176 }
+
+  # --- SPECIAL CHALLENGES ---
+  - TextList:
+      title: "Sharingan Mastery"
+      description: "Defeat specific enemies using Sharingan (Sasuke or Kakashi)."
+      items:
+        - "Naruto (Sexy Jutsu)"
+        - "Sakura (This fairy tale is for real)"
+        - "Haku (A Thousand Needles of Death)"
+        - "Gaara"
+
+  - CounterTable:
+      title: "Make-Out Paradise"
+      max_rows: 14
+      max_cols: 14
+      all_counters_goal: 99
+      participants: *extended_chars

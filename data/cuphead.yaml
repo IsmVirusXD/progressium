@@ -1,0 +1,122 @@
+# -------------------------------------------------------------------------------
+# Cuphead
+# -------------------------------------------------------------------------------
+
+info:
+  title: "Cuphead - Achievements" # Padronizado para 'title'
+  author: "Igor Mendes"
+  game: "Cuphead"
+  console: "stm"
+  mode: "achiv"
+  dlc: false
+
+common_ranks: &default_ranks ["D", "C", "B", "B+", "A-", "A", "A+", "S"]
+
+content:
+  Cuphead:
+    # --- GENERAL PROGRESSION ---
+    - TextList:
+        title: "Completing the Game"
+        items:
+          - "Normal Difficulty"
+          - "Expert Difficulty"
+
+    - CounterGoal: # Padronizado para CounterList (como no Naruto)
+        title: "Collectibles"
+        label: "Coins"
+        target: 40
+
+    - TextGoal:
+        title: "Exploration"
+        item: "Find a Shortcut"
+
+    # --- TECHNICAL CHALLENGES ---
+    - TextList:
+        title: "Parries"
+        items:
+          - "Perform 20 Parries"
+          - "Perform 100 Parries"
+          - "Perform 5 Parries before hitting the ground"
+
+    - TextList:
+        title: "Defeating a Boss"
+        items:
+          - "Defeat a Boss"
+          - "With an EX move"
+          - "With a Super Art"
+          - "Achieve an S-Rank"
+          - "Using only the Mini-Plane bullets"
+
+    - TextList:
+        title: "Run 'N Gun"
+        items:
+          - "Complete a level without taking damage"
+          - "Without killing anyone (Pacifist)"
+
+    # --- WORLD 1 (Inkwell Isle I) ---
+    - RankList:
+        title: "Inkwell Isle I - Rank"
+        target: "A"
+        ranks: *default_ranks
+        items:
+          [
+            "The Root Pack",
+            "Goopy Le Grande",
+            "Hilda Berg",
+            "Cagney Carnation",
+            "Ribby and Croaks",
+          ]
+
+    # --- WORLD 2 (Inkwell Isle II) ---
+    - RankList:
+        title: "Inkwell Isle II - Rank"
+        target: "A"
+        ranks: *default_ranks
+        items:
+          [
+            "Baroness Von Bon Bon",
+            "Beppi The Clown",
+            "Djimmi The Great",
+            "Grim Matchstick",
+            "Wally Warbles",
+          ]
+
+    # --- WORLD 3 (Inkwell Isle III) ---
+    - RankList:
+        title: "Inkwell Isle III"
+        target: "A"
+        ranks: *default_ranks
+        items:
+          [
+            "Rumor Honeybottoms",
+            "Captain Brineybeard",
+            "Sally Stageplay",
+            "Werner Werman",
+            "Dr. Kahl's Robot",
+            "Cala Maria",
+            "Phantom Express",
+          ]
+
+    # --- ENDGAME (Hell & Casino) ---
+    - RankList:
+        title: "Inkwell Hell"
+        target: "A"
+        ranks: *default_ranks
+        items: ["King Dice", "The Devil"]
+
+    - TextList:
+        title: "The Casino"
+        items:
+          - "Defeat King Dice"
+          - "Defeat King Dice without taking damage"
+
+    - TextList:
+        title: "The Devil"
+        items:
+          - "Defeat The Devil"
+          - "Accept the Contract"
+
+    # --- ABILITIES ---
+    - TextList:
+        title: "Super Arts"
+        items: ["Super Art I", "Super Art II", "Super Art III"]
