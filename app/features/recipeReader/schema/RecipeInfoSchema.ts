@@ -1,11 +1,13 @@
 import z from "zod";
+import { ConsoleSchema } from "./ConsoleSchema";
+import { ModeSchema } from "./ModeSchema";
 
 export const RecipeInfoSchema = z.object({
   title: z.string(),
   author: z.string(),
   game: z.string(),
-  console: z.string().length(3),
-  mode: z.string().length(5),
+  console: ConsoleSchema,
+  mode: ModeSchema,
   dlc: z.boolean().default(false),
 });
 

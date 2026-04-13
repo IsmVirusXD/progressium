@@ -1,10 +1,10 @@
-export const ConsoleList: Record<string, string> = {
+export const ConsoleList = {
   stm: "Steam",
-  psx: "Playstation",
-  ps2: "Playstation 2",
-  ps3: "Playstation 3",
-  ps4: "Playstation 4",
-  ps5: "Playstation 5",
+  psx: "PlayStation",
+  ps2: "PlayStation 2",
+  ps3: "PlayStation 3",
+  ps4: "PlayStation 4",
+  ps5: "PlayStation 5",
   nes: "Nintendo Entertainment System",
   sns: "Super Nintendo Entertainment System",
   n64: "Nintendo 64",
@@ -13,8 +13,10 @@ export const ConsoleList: Record<string, string> = {
   gbc: "Game Boy Color",
   gba: "Game Boy Advance",
   nds: "Nintendo DS",
-  wii: "WII",
+  wii: "Wii",
   msm: "Master System",
   gmd: "Genesis / Mega Drive",
   drc: "Dreamcast",
-};
+} as const;
+
+export type ConsoleCode = keyof typeof ConsoleList;
