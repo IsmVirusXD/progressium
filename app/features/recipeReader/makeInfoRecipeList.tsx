@@ -3,12 +3,17 @@ import { Recipe } from "./interfaces/Recipe";
 import { RecipeInfo } from "./interfaces/RecipeInfo";
 import { RecipeSchema } from "./interfaces/RecipeSchema";
 
-export function getAllYamlInfo(): RecipeInfo[] | undefined {
+export function getAllYamlInfo(): RecipeInfo[] | null {
   try {
-    const ymalContent = yamlGetAll();
+    const yamlContent = yamlGetAll();
 
-    const allInfos = ymalContent
-      ?.map((file) => {
+    if (yamlContent.length === 0) {
+      console.error(`Error: Não ha nenhum arquivo yaml no diretório`);
+      return null;
+    }
+
+    const allInfos = yamlContent
+      .map((file: any) => {
         try {
           if (typeof file === undefined) return null;
           const doc: Recipe = RecipeSchema.parse(file);

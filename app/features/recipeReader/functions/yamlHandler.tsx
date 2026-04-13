@@ -20,7 +20,7 @@ export function yamlGetOne(fileName: string) {
   }
 }
 
-export function yamlGetAll() {
+export function yamlGetAll(): [] | unknown[] {
   try {
     const files = fs.readdirSync(YAML_DATA_DIR);
     const allFiles = files
@@ -36,9 +36,15 @@ export function yamlGetAll() {
             `Error: Falha ao carregar o conteúdo de "${file}". Pulando arquivo...`,
             error,
           );
-          return null;
+          return [];
         }
       });
+
+    if (allFiles.length === 0) {
+      console.error(`Não há arquivos no Repositório`);
+      return [];
+    }
+    return allFiles;
   } catch (globalError) {
     console.error(
       "Erro Critico: Ao Acessar a a pasta de Arquivos",
