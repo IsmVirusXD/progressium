@@ -1,6 +1,6 @@
-import { yamlGetAll } from "./functions/yamlHandler";
-import { Recipe } from "./interfaces/Recipe";
-import { RecipeInfo, RecipeInfoSchema } from "./schema/RecipeInfoSchema";
+import { yamlGetAll } from "../functions/yamlHandler";
+import { Recipe } from "../interfaces/Recipe";
+import { RecipeInfo, RecipeInfoSchema } from "../schema/RecipeInfoSchema";
 
 export function getAllYamlInfo(): RecipeInfo[] | null {
   try {
