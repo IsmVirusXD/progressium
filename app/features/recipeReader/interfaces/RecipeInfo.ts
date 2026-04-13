@@ -1,4 +1,4 @@
-export interface RecipeInfo {
+export interface IRecipeInfo {
   title: string;
   author: string;
   game: string;
@@ -6,3 +6,5 @@ export interface RecipeInfo {
   mode: string;
   dlc: boolean;
 }
+
+
