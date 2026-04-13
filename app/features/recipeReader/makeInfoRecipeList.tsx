@@ -14,7 +14,6 @@ export function getAllYamlInfo(): RecipeInfo[] | null {
     const allInfos = yamlContent
       .map((file: any) => {
         try {
-          if (typeof file === undefined) return null;
           const doc: RecipeInfo = RecipeInfoSchema.parse(file.info);
           return doc;
         } catch (error) {
