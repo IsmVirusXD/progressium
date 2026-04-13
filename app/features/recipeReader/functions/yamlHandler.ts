@@ -13,7 +13,7 @@ export function yamlParse(content: string): string | unknown {
   }
 }
 
-export function yamlGetOne(fileName: string) {
+export function readYamlFile(fileName: string) {
   const filePath = path.join(YAML_DATA_DIR, fileName);
 
   try {
@@ -25,7 +25,7 @@ export function yamlGetOne(fileName: string) {
   }
 }
 
-export function yamlGetAll() {
+export function readAllYamlFiles() {
   try {
     const files = fs.readdirSync(YAML_DATA_DIR);
     const allFiles = files

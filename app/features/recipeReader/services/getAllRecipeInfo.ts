@@ -1,10 +1,10 @@
-import { yamlGetAll } from "../functions/yamlHandler";
+import { readAllYamlFiles } from "../functions/yamlHandler";
 import { Recipe } from "../interfaces/Recipe";
 import { RecipeInfo, RecipeInfoSchema } from "../schema/RecipeInfoSchema";
 
 export function getAllYamlInfo(): RecipeInfo[] | null {
   try {
-    const yamlContent = yamlGetAll();
+    const yamlContent = readAllYamlFiles();
 
     if (yamlContent.length === 0) {
       console.error(`Error: Não ha nenhum arquivo yaml no diretório`);
