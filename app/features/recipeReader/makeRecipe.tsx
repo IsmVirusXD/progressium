@@ -1,9 +1,8 @@
-import { error } from "console";
 import { Recipe } from "./interfaces/Recipe";
-import { RecipeSchema } from "./interfaces/RecipeSchema";
 import { yamlGetOne } from "./functions/yamlHandler";
+import { RecipeSchema } from "./schema/RecipeSchema";
 
-export function makeRecipe(fileId: string): Recipe | undefined {
+export function makeRecipe(fileId: string) {
   const data = yamlGetOne(fileId);
 
   try {
@@ -14,6 +13,6 @@ export function makeRecipe(fileId: string): Recipe | undefined {
       `A Receita: ${fileId} não se encontra nos padrões esperados`,
       error,
     );
-    return undefined;
+    return null;
   }
 }

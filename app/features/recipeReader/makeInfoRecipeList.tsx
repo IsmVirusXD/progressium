@@ -1,7 +1,6 @@
 import { yamlGetAll } from "./functions/yamlHandler";
 import { Recipe } from "./interfaces/Recipe";
-import { RecipeInfo } from "./interfaces/RecipeInfo";
-import { RecipeSchema } from "./interfaces/RecipeSchema";
+import { RecipeInfo, RecipeInfoSchema } from "./schema/RecipeInfoSchema";
 
 export function getAllYamlInfo(): RecipeInfo[] | null {
   try {
@@ -16,8 +15,8 @@ export function getAllYamlInfo(): RecipeInfo[] | null {
       .map((file: any) => {
         try {
           if (typeof file === undefined) return null;
-          const doc: Recipe = RecipeSchema.parse(file);
-          return doc.info;
+          const doc: RecipeInfo = RecipeInfoSchema.parse(file.info);
+          return doc;
         } catch (error) {
           console.error(
             `Error: Falha ao carregar o conteúdo de "${file}". Pulando arquivo...`,

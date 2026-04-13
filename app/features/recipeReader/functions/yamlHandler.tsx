@@ -1,6 +1,7 @@
 import fs from "fs";
 import path from "path";
 import yaml from "js-yaml";
+import { Recipe } from "../schema/RecipeSchema";
 
 export const YAML_DATA_DIR = path.join(process.cwd(), "data");
 
@@ -20,7 +21,7 @@ export function yamlGetOne(fileName: string) {
   }
 }
 
-export function yamlGetAll(): [] | unknown[] {
+export function yamlGetAll() {
   try {
     const files = fs.readdirSync(YAML_DATA_DIR);
     const allFiles = files
@@ -30,15 +31,16 @@ export function yamlGetAll(): [] | unknown[] {
           const filePath = path.join(YAML_DATA_DIR, file);
           const fileContent = fs.readFileSync(filePath, "utf8");
           const doc = yamlParse(fileContent);
-          return doc;
+          return doc as Recipe;
         } catch (error) {
           console.error(
             `Error: Falha ao carregar o conteúdo de "${file}". Pulando arquivo...`,
             error,
           );
-          return [];
+          return null;
         }
-      });
+      })
+      .filter((file: any) => file !== null);
 
     if (allFiles.length === 0) {
       console.error(`Não há arquivos no Repositório`);
