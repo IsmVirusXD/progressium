@@ -70,7 +70,7 @@ export default function TextList({ title, items }: textListProps) {
       {open
         ? items.map((item: string, index: number) => (
             <button
-              id={idBase + index.toString()}
+              key={idBase + index.toString()}
               onClick={() => {
                 toggleDoneIndex(index);
               }}
