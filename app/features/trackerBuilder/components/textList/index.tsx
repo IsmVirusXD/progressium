@@ -5,11 +5,12 @@ import TextListPresenter from "./presenter";
 
 interface TextListProps {
   title: string;
-  info: string;
+  info?: string ;
   items: string[];
 }
 
 export default function TextList({ title, info, items }: TextListProps) {
+  
   const idBase = title.toLocaleLowerCase().replace(/\s+/g, "");
 
   const [itemDone, setItemDone] = useState<boolean[]>(
@@ -37,7 +38,7 @@ export default function TextList({ title, info, items }: TextListProps) {
     <TextListPresenter
       idBase={idBase}
       title={title}
-      info={info}
+      info={info ? info : null}
       items={items}
       isListComplete={isListComplete}
       showInfo={showInfo}

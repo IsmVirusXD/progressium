@@ -4,7 +4,7 @@ import { twJoin } from "tailwind-merge";
 interface TextListPresenterProps {
   idBase: string;
   title: string;
-  info: string;
+  info: string | null;
   items: string[];
   isListComplete: boolean;
   showInfo: boolean;
@@ -24,6 +24,9 @@ export default function TextListPresenter({
   checkIsItemDoneIndex,
   changeInfoVisibility,
 }: TextListPresenterProps) {
+  const Icon = showInfo ? Minus : ChevronDown;
+  const iconColor = isListComplete ? "text-done" : "text-primary";
+
   return (
     <div
       className={twJoin(
@@ -36,6 +39,12 @@ export default function TextListPresenter({
         className="flex flew-row gap-2 content-center"
         onClick={changeInfoVisibility}
       >
+        {info &&
+          (showInfo ? (
+            <Minus className={twJoin("my-1.5", iconColor)} />
+          ) : (
+            <ChevronDown className={twJoin("my-1.5", iconColor)} />
+          ))}
         {isListComplete ? (
           <del className="font-heading text-2xl font-medium">{title}</del>
         ) : (
@@ -43,23 +52,8 @@ export default function TextListPresenter({
             {title}
           </p>
         )}
-        {showInfo ? (
-          <Minus
-            className={twJoin(
-              "my-1.5 ",
-              isListComplete ? "text-done" : "text-primary",
-            )}
-          />
-        ) : (
-          <ChevronDown
-            className={twJoin(
-              "my-1.5 ",
-              isListComplete ? "text-done" : "text-primary",
-            )}
-          />
-        )}
       </button>
-      {showInfo ? (
+      {showInfo && info ? (
         <div
           key={idBase + info}
           className=" flex border my-2 p-2 text-primary border-primary font-body"
