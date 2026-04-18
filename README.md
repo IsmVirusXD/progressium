@@ -156,7 +156,7 @@ Todas as contribuições devem ser abertas na página de Issues, utilizando as t
 As contribuições de código ainda não estão abertas. Estamos finalizando a estruturação interna para que todos possam colaborar em breve. Agradecemos a paciência.
 
 <p align="center">
-Desenvolvido com ❤️ por <strong>Igor Mendes</strong>
-<a href="https://www.youtube.com/@PlatinumPaz">PlatinumPaz</a>
+Desenvolvido com ❤️ por <strong>Igor Mendes</strong><br>
+<a href="https://www.youtube.com/@PlatinumPaz">PlatinumPaz</a><br>
 <sub>© 2024 - Presente</sub>
 </p>
