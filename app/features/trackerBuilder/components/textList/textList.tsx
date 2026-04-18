@@ -6,17 +6,17 @@ import { twJoin } from "tailwind-merge";
 
 interface textListProps {
   title: string;
+  info: string;
   items: string[];
 }
 
-export default function TextList({ title, items }: textListProps) {
+export default function TextList({ title, items, info }: textListProps) {
   const idBase = title.toLocaleLowerCase().replace(/\s+/g, "");
 
   const [done, setDone] = useState<boolean[]>(
     new Array(items.length).fill(false),
   );
   const [allDone, setAllDone] = useState<boolean>(false);
-  const [progress, setProgress] = useState<number>(0);
   const [open, setOpen] = useState<boolean>(true);
 
   const toggleDoneIndex = (index: number) => {
@@ -24,7 +24,6 @@ export default function TextList({ title, items }: textListProps) {
     newState[index] = !newState[index];
     setDone(newState);
     setAllDone(newState.every(Boolean));
-    setProgress(newState.filter(Boolean).length);
   };
 
   return (
@@ -46,9 +45,6 @@ export default function TextList({ title, items }: textListProps) {
         ) : (
           <p className="font-heading text-2xl font-medium text-primary">
             {title}
-            <span className="pl-2">
-              [{progress}/{items.length}]
-            </span>
           </p>
         )}
         {open ? (
@@ -67,29 +63,35 @@ export default function TextList({ title, items }: textListProps) {
           />
         )}
       </button>
-      {open
-        ? items.map((item: string, index: number) => (
-            <button
-              key={idBase + index.toString()}
-              onClick={() => {
-                toggleDoneIndex(index);
-              }}
-              className="flex flex-row gap-2 ml-3 my-2"
-            >
-              {done[index] ? (
-                <>
-                  <CircleCheckBig className={"text-done"} />
-                  <del className={"text-done"}>{item}</del>
-                </>
-              ) : (
-                <>
-                  <Circle className={"text-secondary"} />
-                  <p className={"text-foreground"}>{item}</p>
-                </>
-              )}
-            </button>
-          ))
-        : null}
+      {open ? (
+        <div
+          key={idBase + info}
+          className=" flex border my-2  p-2 text-primary border-primary font-body"
+        >
+          <h1>{info}</h1>
+        </div>
+      ) : null}
+      {items.map((item: string, index: number) => (
+        <button
+          key={idBase + index.toString()}
+          onClick={() => {
+            toggleDoneIndex(index);
+          }}
+          className="flex flex-row gap-2 ml-3 my-2"
+        >
+          {done[index] ? (
+            <>
+              <CircleCheckBig className={"text-done"} />
+              <del className={"text-done"}>{item}</del>
+            </>
+          ) : (
+            <>
+              <Circle className={"text-secondary"} />
+              <p className={"text-foreground font-heading"}>{item}</p>
+            </>
+          )}
+        </button>
+      ))}
     </div>
   );
 }
