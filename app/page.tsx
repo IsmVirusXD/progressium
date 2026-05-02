@@ -1,5 +1,38 @@
+import { CheckTable } from "./features/trackerBuilder/components/checkTable";
 import TextList from "./features/trackerBuilder/components/textList/index";
 import TrackerHeader from "./features/trackerBuilder/components/trackerHeader/index";
+
+const personagensBase = [
+  "Naruto",
+  "Sasuke",
+  "Sakura",
+  "Rock Lee",
+  "Shikamaru",
+  "Kakashi",
+  "Neji",
+  "Hinata",
+  "Haku",
+  "Zabuza",
+  "Gaara",
+  "Orochimaru",
+];
+
+const allPersonagensBase = [
+  "Naruto",
+  "Sasuke",
+  "Sakura",
+  "Rock Lee",
+  "Shikamaru",
+  "Kakashi",
+  "Neji",
+  "Hinata",
+  "Haku",
+  "Zabuza",
+  "Gaara",
+  "Orochimaru",
+  "Nine-Tails Naruto",
+  "Cursed Mark Sasuke",
+];
 
 export default function Home() {
   return (
@@ -7,33 +40,38 @@ export default function Home() {
       <section>
         <TrackerHeader
           author="Igor Mendes"
-          image="https://yt3.googleusercontent.com/Anq7ei3motwtTuVzloCjpy114Lx2H96PEakkaKmjhSjTcjH-rs0YVLDqjLlQVUe3Gb9zBw1hNg=s160-c-k-c0x00ffffff-no-rj"
-          title="TESTE MODE"
+          image="https://media.retroachievements.org/Images/126564.png"
+          title="Naruto Ultimate Ninja - Retro Achievement"
         />
       </section>
       <section className="flex flex-row gap-1">
         <TextList
-          key={"A"}
-          title="Lista de Tarefas A"
-          info="Tem que fazer algo na Lista A"
-          items={[
-            "A - Tarefa 01",
-            "A - Tarefa 02",
-            "A - Tarefa 03",
-            "A - Tarefa 04",
-            "A - Tarefa 05",
-          ]}
+          key={"scenario-mode"}
+          title="Scenario Mode"
+          items={personagensBase}
         />
         <TextList
-          key={"B"}
-          title="Lista de Tarefa B"
-          info="Tem que fazer algo na Lista B"
-          items={[
-            "B - Tarefa 01",
-            "B - Tarefa 02",
-            "B - Tarefa 03",
-            "B - Tarefa 04",
-            "B - Tarefa 05",
+          key={"hardcore-senario"}
+          title="Scenario Mode - Hardcore"
+          info="Complete the scenario without using any retries."
+          items={personagensBase}
+        />
+        <TextList
+          key={"training-mode"}
+          title="Training Mode"
+          info="Complete training with all available forms."
+          items={allPersonagensBase}
+        />
+        <CheckTable
+          title={"Missions"}
+          key={"mission"}
+          info="Complete the missions"
+          data={[
+            { label: "Practice", count: 5 },
+            { label: "D-Rank", count: 6 },
+            { label: "C-Rank", count: 7 },
+            { label: "B-Rank", count: 10 },
+            { label: "A-Rank", count: 9 },
           ]}
         />
       </section>
