@@ -32,8 +32,35 @@ export function TextButton({
   type,
   cyId,
 }: TextButtonProps) {
-  const id = `${cyId}-text-button`;
   const baseStyle = "h-9 border text-center rounded-md";
+
+  const colorStyles = {
+    confirm:
+      "text-done border border-done hover:border-0 hover:bg-done hover:text-background",
+    cancel:
+      "text-secondary border border-secondary hover:border-0 hover:bg-secondary hover:text-background",
+    text: "text-primary border border-primary hover:border-0 hover:bg-primary hover:text-background",
+    deactivate: "border-0 bg-muted text-background opacity-30",
+  };
+
+  const componentSize = {
+    medium: "w-40 h-9",
+    small: "w-28 h-9",
+  };
+
+export function TextButton({
+  text,
+  activate = true,
+  onClick,
+  size,
+  type,
+  cyId,
+}: TextButtonProps) {
+  const id = `${cyId}-text-button`;
+  const baseStyle =
+    "h-9 border text-center rounded-md" + activate
+      ? "cursor-pointer"
+      : "cursor-default";
 
   const tailwindConfig: string = [
     SIZE_MAP[size],

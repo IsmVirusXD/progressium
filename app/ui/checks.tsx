@@ -11,7 +11,7 @@ interface CheckProps {
   mode: "square" | "circle";
   isDone: boolean;
   isErro?: boolean;
-  onClick: () => void;
+  onClick?: () => void;
   cyId: string;
 }
 
@@ -27,8 +27,11 @@ export function Checker({
   onClick,
   cyId,
 }: CheckProps) {
+  const isClickable: boolean = !isErro && !!onClick;
+
   const id = `${cyId}-${mode}-checker`;
-  const iconStyle = "h-5 w-5";
+  const iconStyle =
+    "h-5 w-5" + isClickable ? "cursor-pointer" : "cursor-default";
   const colorStyle = isErro
     ? "text-muted"
     : isDone
@@ -46,9 +49,9 @@ export function Checker({
 
   return (
     <button
-      onClick={!isErro ? onClick : undefined}
+      onClick={isClickable ? onClick : undefined}
       id={isErro ? `${id}-error` : id}
-      disabled={isErro}
+      disabled={!isClickable}
       className={tailwindConfig}
     >
       <IconComponent />
