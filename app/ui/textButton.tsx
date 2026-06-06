@@ -3,9 +3,9 @@ import { typography } from "../styles/fonts/typografy";
 
 interface TextButtonProps {
   text: string;
-  activate: boolean;
+  activate?: boolean;
   onClick: () => void;
-  size: "medium" | "small";
+  size: "large" | "medium" | "small" | "full";
   type: "confirm" | "cancel" | "text";
   cyId: string;
 }
@@ -20,8 +20,10 @@ const COLOR_MAP = {
 };
 
 const SIZE_MAP = {
+  large: "w-60 h-9",
   medium: "w-40 h-9",
   small: "w-28 h-9",
+  full: "w-full h-full",
 };
 
 export function TextButton({
@@ -33,16 +35,15 @@ export function TextButton({
   cyId,
 }: TextButtonProps) {
   const id = `${cyId}-text-button`;
-  const baseStyle =
-    "h-9 border text-center rounded-md" + activate
-      ? "cursor-pointer"
-      : "cursor-default";
+  const baseStyle = "h-9 border text-center rounded-md";
 
   const tailwindConfig: string = twJoin(
     SIZE_MAP[size],
     baseStyle,
     typography.button,
-    activate ? COLOR_MAP[type] : COLOR_MAP["deactivate"],
+    activate
+      ? `${COLOR_MAP[type]} cursor-pointer`
+      : `${COLOR_MAP["deactivate"]} cursor-default`,
   );
 
   return (
